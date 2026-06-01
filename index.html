@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunrise University: Upgraded Admissions & Campus Life AI Chatbot</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2040/2040946.png">
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Background Blur Decorative Gradients -->
+    <div class="bg-gradient-circle bg-circle-1"></div>
+    <div class="bg-gradient-circle bg-circle-2"></div>
+    <div class="bg-gradient-circle bg-circle-3"></div>
+
+    <!-- Outer Container -->
+    <div class="app-wrapper">
+        <!-- Navigation Header -->
+        <header class="app-header">
+            <div class="brand">
+                <div class="brand-logo">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="brand-details">
+                    <h1>Sunrise University</h1>
+                    <span class="status-indicator">
+                        <span class="dot pulse"></span> 
+                        <span class="badge-status-text">AI Admission Assistant</span>
+                    </span>
+                </div>
+            </div>
+            <nav class="nav-actions">
+                <button id="btn-chat-view" class="nav-btn active" title="Go to Chatbot">
+                    <i class="fa-solid fa-comments"></i> <span>Assistant</span>
+                </button>
+                <button id="btn-admin-view" class="nav-btn" title="Open Admin Portal">
+                    <i class="fa-solid fa-sliders"></i> <span>Admin Portal</span>
+                </button>
+                <button id="btn-theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme">
+                    <i class="fa-solid fa-sun icon-sun"></i>
+                    <i class="fa-solid fa-moon icon-moon"></i>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="app-body">
+            
+            <!-- VIEW 1: CHAT INTERFACE (Active by Default) -->
+            <section id="chat-section" class="view-panel active">
+                <div class="chat-container">
+                    
+                    <!-- Chat Header / Welcome Intro Panel -->
+                    <div class="chat-intro-card" id="chat-welcome-banner">
+                        <div class="intro-icon">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h2>Sunrise University AI Assistant</h2>
+                        <p class="intro-desc">Get instant answers about admissions, scholarships, academics, housing, campus life, and student support.</p>
+                        
+                        <!-- Interactive statistics grid -->
+                        <div class="metrics-dashboard-grid">
+                            <div class="stat-card">
+                                <span class="stat-number" data-target="71">71</span>
+                                <span class="stat-title">Knowledge Bases</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">8</span>
+                                <span class="stat-title">Categories</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number" id="stats-total-resolved">99%</span>
+                                <span class="stat-title">Viva Explanability</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">0.05s</span>
+                                <span class="stat-title">Query Matching</span>
+                            </div>
+                        </div>
+
+                        <!-- Action Hero Buttons -->
+                        <div class="intro-hero-actions">
+                            <button id="btn-hero-start" class="btn btn-primary-gradient">
+                                <i class="fa-solid fa-paper-plane"></i> Start Chatting
+                            </button>
+                            <button id="btn-hero-explore" class="btn btn-secondary-glass">
+                                <i class="fa-solid fa-lightbulb"></i> Suggested Questions
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Category Filtering Bar -->
+                    <div class="category-filters-container">
+                        <span class="filter-title"><i class="fa-solid fa-filter"></i> Search within:</span>
+                        <div class="category-filters" id="chat-category-filters">
+                            <button class="filter-pill active" data-category="Admissions">🎓 Admissions</button>
+                            <button class="filter-pill active" data-category="Academics">📚 Academics</button>
+                            <button class="filter-pill active" data-category="Financials">💰 Financial Aid</button>
+                            <button class="filter-pill active" data-category="Housing">🏠 Housing</button>
+                            <button class="filter-pill active" data-category="Campus Life">🌟 Campus Life</button>
+                            <button class="filter-pill active" data-category="Support">🩺 Support</button>
+                            <button class="filter-pill active" data-category="International">🌎 International</button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Messages Stream -->
+                    <div class="chat-messages" id="chat-messages-stream">
+                        <!-- Restored dynamically by script.js, default welcome is appended if empty -->
+                    </div>
+
+                    <!-- Suggested Questions Panel (Clickable quick answers) -->
+                    <div class="quick-suggestions-panel" id="hero-quick-suggestions">
+                        <span class="quick-title"><i class="fa-solid fa-circle-question"></i> Common Questions:</span>
+                        <div class="quick-grid">
+                            <button class="quick-suggest-btn" data-question="What are the general admission requirements?">
+                                <i class="fa-solid fa-arrow-right-long"></i> Admission requirements
+                            </button>
+                            <button class="quick-suggest-btn" data-question="What merit-based scholarships are available for incoming freshmen?">
+                                <i class="fa-solid fa-arrow-right-long"></i> Scholarship details
+                            </button>
+                            <button class="quick-suggest-btn" data-question="What are the hostel rules and curfews for students?">
+                                <i class="fa-solid fa-arrow-right-long"></i> Hostel facilities & curfews
+                            </button>
+                            <button class="quick-suggest-btn" data-question="Do you accept JEE Main or NEET scores for engineering and science admissions?">
+                                <i class="fa-solid fa-arrow-right-long"></i> Entrance score cutoffs
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Input Panel -->
+                    <div class="chat-input-panel">
+                        <!-- Action Utility Bar -->
+                        <div class="input-utility-bar">
+                            <span class="utility-tip">
+                                <i class="fa-solid fa-wand-magic-sparkles text-accent"></i> Correcting minor typos automatically
+                            </span>
+                            <button id="btn-clear-chat" class="utility-btn" title="Clear all chat history from browser">
+                                <i class="fa-solid fa-trash-can"></i> Clear History
+                            </button>
+                        </div>
+                        <!-- Input Box & Form -->
+                        <div class="input-form-wrapper">
+                            <div class="input-form">
+                                <input type="text" id="chat-input-field" placeholder="Ask about deadlines, scholarships, tuition, or campus life..." autocomplete="off" maxlength="250">
+                                
+                                <!-- Voice Dictation Microphone Button -->
+                                <button type="button" id="btn-voice-input" class="voice-btn" title="Dictate with voice input">
+                                    <i class="fa-solid fa-microphone"></i>
+                                </button>
+                                
+                                <button id="chat-send-btn" class="send-btn" title="Send Message">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <!-- Autocomplete Search Suggestions floating box -->
+                            <div class="autocomplete-suggestions" id="autocomplete-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+ 
+            <!-- VIEW 2: ADMIN PANEL (Tabbed Dashboard) -->
+            <section id="admin-section" class="view-panel">
+                <div class="admin-container">
+                    
+                    <!-- Admin Panel Sidebar / Controls -->
+                    <aside class="admin-sidebar">
+                        <div class="admin-profile-box">
+                            <div class="admin-avatar">
+                                <i class="fa-solid fa-user-shield"></i>
+                            </div>
+                            <h3>System Administrator</h3>
+                            <span class="badge">FAQ System Control</span>
+                        </div>
+                        
+                        <!-- Navigation tabs for Admin -->
+                        <nav class="admin-nav-tabs">
+                            <button class="admin-tab-btn active" data-tab="admin-tab-faqs">
+                                <i class="fa-solid fa-database"></i> Database Editor
+                            </button>
+                            <button class="admin-tab-btn" data-tab="admin-tab-analytics">
+                                <i class="fa-solid fa-chart-line"></i> System Analytics
+                            </button>
+                        </nav>
+                        
+                        <!-- Database Operations -->
+                        <div class="admin-actions-menu">
+                            <button id="btn-open-create-modal" class="admin-menu-btn primary-action">
+                                <i class="fa-solid fa-plus"></i> Add New FAQ
+                            </button>
+                            <div class="bulk-ops-divider">Database Utility</div>
+                            <button id="btn-export-faqs" class="admin-menu-btn secondary-action" title="Export entire FAQ database to JSON">
+                                <i class="fa-solid fa-file-export"></i> Export JSON
+                            </button>
+                            <div class="import-wrapper">
+                                <label for="faq-import-file-input" class="admin-menu-btn secondary-action cursor-pointer">
+                                    <i class="fa-solid fa-file-import"></i> Import JSON
+                                </label>
+                                <input type="file" id="faq-import-file-input" accept=".json" style="display: none;">
+                            </div>
+                            <button id="btn-logout" class="admin-menu-btn danger-action">
+                                <i class="fa-solid fa-right-from-bracket"></i> Lock Admin Panel
+                            </button>
+                        </div>
+                    </aside>
+
+                    <!-- Admin FAQ Main Panel -->
+                    <div class="admin-main-content">
+                        
+                        <!-- TAB 1: FAQ CRUD LIST EDITOR -->
+                        <div id="admin-tab-faqs" class="admin-tab-panel active">
+                            <div class="content-header">
+                                <div>
+                                    <h2>FAQ Knowledge Base</h2>
+                                    <p class="section-desc">Manage standard university questions, answers, and synonym match variations.</p>
+                                </div>
+                                <!-- Search / Filter -->
+                                <div class="search-filter-box">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <input type="text" id="admin-search-input" placeholder="Filter questions, answers, variations...">
+                                </div>
+                            </div>
+
+                            <!-- FAQ Table Container -->
+                            <div class="faq-list-container">
+                                <div class="table-responsive">
+                                    <table class="faq-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 8%">ID</th>
+                                                <th style="width: 15%">Category</th>
+                                                <th style="width: 32%">Primary Question</th>
+                                                <th style="width: 30%">Answer</th>
+                                                <th style="width: 15%">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="admin-faq-table-rows">
+                                            <tr>
+                                                <td colspan="5" class="loading-td">
+                                                    <i class="fa-solid fa-spinner fa-spin"></i> Loading FAQ database...
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- TAB 2: SYSTEM ANALYTICS DASHBOARD -->
+                        <div id="admin-tab-analytics" class="admin-tab-panel">
+                            <div class="content-header">
+                                <div>
+                                    <h2>Real-Time System Analytics</h2>
+                                    <p class="section-desc">Track user questions, chatbot similarity trends, and helpfulness metrics.</p>
+                                </div>
+                                <button id="btn-refresh-analytics" class="btn btn-secondary" title="Reload live analytics data">
+                                    <i class="fa-solid fa-arrows-rotate"></i> Refresh
+                                </button>
+                            </div>
+                            
+                            <!-- Analytics Summary Metrics Grid -->
+                            <div class="analytics-metrics-grid">
+                                <div class="metric-widget-card">
+                                    <div class="widget-icon primary"><i class="fa-solid fa-comments"></i></div>
+                                    <div class="widget-details">
+                                        <span class="widget-label">Total Queries Logged</span>
+                                        <h3 class="widget-value" id="analytic-total-queries">0</h3>
+                                    </div>
+                                </div>
+                                <div class="metric-widget-card">
+                                    <div class="widget-icon success"><i class="fa-solid fa-chart-bar"></i></div>
+                                    <div class="widget-details">
+                                        <span class="widget-label">Avg. Match Confidence</span>
+                                        <h3 class="widget-value" id="analytic-avg-confidence">0.0%</h3>
+                                    </div>
+                                </div>
+                                <div class="metric-widget-card">
+                                    <div class="widget-icon info"><i class="fa-solid fa-face-smile"></i></div>
+                                    <div class="widget-details">
+                                        <span class="widget-label">Helpful Feedback Ratio</span>
+                                        <h3 class="widget-value" id="analytic-feedback-ratio">0.0%</h3>
+                                    </div>
+                                </div>
+                                <div class="metric-widget-card">
+                                    <div class="widget-icon danger"><i class="fa-solid fa-circle-xmark"></i></div>
+                                    <div class="widget-details">
+                                        <span class="widget-label">Low Match/Failed Queries</span>
+                                        <h3 class="widget-value" id="analytic-failed-count">0</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Detailed Analytics Split Layout -->
+                            <div class="analytics-detail-split">
+                                <!-- Col 1: Questions Lists -->
+                                <div class="split-col">
+                                    <div class="analytics-sub-card">
+                                        <h4><i class="fa-solid fa-circle-arrow-up text-success"></i> Top 5 Most Asked FAQs</h4>
+                                        <ul class="analytics-list" id="analytic-list-top-asked">
+                                            <li class="empty-list-li">No queries logged yet.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="analytics-sub-card">
+                                        <h4><i class="fa-solid fa-triangle-exclamation text-danger"></i> Top 5 Failed Queries (Did You Mean)</h4>
+                                        <ul class="analytics-list" id="analytic-list-failed">
+                                            <li class="empty-list-li">No unmatched queries logged yet.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <!-- Col 2: Category & Feedback breakdowns -->
+                                <div class="split-col">
+                                    <div class="analytics-sub-card">
+                                        <h4><i class="fa-solid fa-pie-chart text-info"></i> Category Distribution</h4>
+                                        <div class="category-stat-bars-container" id="analytic-category-distribution-bars">
+                                            <!-- Dynamic Category Progress bars -->
+                                            <div class="empty-list-li">No queries logged yet.</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="analytics-sub-card">
+                                        <h4><i class="fa-solid fa-thumbs-up text-primary"></i> User Feedback Breakdown</h4>
+                                        <div class="feedback-stat-box">
+                                            <div class="fb-stat-column">
+                                                <i class="fa-solid fa-thumbs-up fb-icon text-success"></i>
+                                                <h3 id="analytic-fb-helpful">0</h3>
+                                                <span>Helpful</span>
+                                            </div>
+                                            <div class="fb-stat-column">
+                                                <i class="fa-solid fa-thumbs-down fb-icon text-danger"></i>
+                                                <h3 id="analytic-fb-nothelpful">0</h3>
+                                                <span>Not Helpful</span>
+                                            </div>
+                                            <div class="fb-stat-column">
+                                                <i class="fa-solid fa-circle-question fb-icon text-muted"></i>
+                                                <h3 id="analytic-fb-unrated">0</h3>
+                                                <span>Unrated</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+        
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Sunrise University</h3>
+                    <p>Fostering academic brilliance and sustainable innovation. Join our admissions portal and embark on a premium study adventure.</p>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Campus Resources</h4>
+                    <ul>
+                        <li><a href="#" target="_blank"><i class="fa-solid fa-chevron-right"></i> Official Website</a></li>
+                        <li><a href="#" target="_blank"><i class="fa-solid fa-chevron-right"></i> Admission Brochure</a></li>
+                        <li><a href="#" target="_blank"><i class="fa-solid fa-chevron-right"></i> Student Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-col">
+                    <h4>Direct Contact</h4>
+                    <p><i class="fa-solid fa-envelope"></i> admissions@sunrise.edu</p>
+                    <p><i class="fa-solid fa-phone"></i> +91 1800-SUN-RISE</p>
+                    <p><i class="fa-solid fa-map-location-dot"></i> Sector 12, Academic Ring road, Sunrise Campus</p>
+                </div>
+            </div>
+            <div class="footer-bottom-row">
+                <p>&copy; 2026 Sunrise University Admissions & Campus Services. Engineered with Typo SpellCorrection, NLTK Lemmatizer, and Embedding Matching.</p>
+                <div class="footer-social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- MODAL 1: ADMIN LOGIN -->
+    <div id="modal-admin-login" class="modal-overlay">
+        <div class="modal-card auth-modal">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-lock"></i> Authentication Required</h3>
+                <button class="modal-close-btn" data-close-target="modal-admin-login"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Please enter the administrative password to manage the FAQ Knowledge Base.</p>
+                <div class="form-group">
+                    <label for="admin-password-input">Admin Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="admin-password-input" placeholder="Enter password (e.g. admin123)" autocomplete="current-password">
+                        <button type="button" id="toggle-password-visibility" class="toggle-pwd-btn">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                    <span id="login-error-msg" class="error-text hide">Invalid password. Please try again.</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-close-target="modal-admin-login">Cancel</button>
+                <button id="btn-submit-login" class="btn btn-primary">Authenticate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: ADD/EDIT FAQ -->
+    <div id="modal-faq-form" class="modal-overlay">
+        <div class="modal-card faq-modal">
+            <div class="modal-header">
+                <h3 id="faq-modal-title"><i class="fa-solid fa-plus"></i> Create New FAQ</h3>
+                <button class="modal-close-btn" data-close-target="modal-faq-form"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="faq-crud-form">
+                    <input type="hidden" id="faq-form-id" value="">
+                    
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label for="faq-form-category">Category</label>
+                            <select id="faq-form-category">
+                                <option value="Admissions">Admissions</option>
+                                <option value="Academics">Academics</option>
+                                <option value="Financials">Financial Aid</option>
+                                <option value="Housing">Housing</option>
+                                <option value="Campus Life">Campus Life</option>
+                                <option value="Support">Support</option>
+                                <option value="International">International</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="faq-form-question">Primary Question</label>
+                        <input type="text" id="faq-form-question" placeholder="e.g. What are the general admission requirements?" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Smart Matching Variations (Paraphrases) 
+                            <span class="label-hint">Provide alternate forms of this question to help the NLP matcher identify variations. No duplicates allowed!</span>
+                        </label>
+                        <div class="variations-input-container">
+                            <div class="variations-chips-list" id="faq-form-variations-chips">
+                                <!-- Variation Chips show here -->
+                            </div>
+                            <div class="variation-adder-row">
+                                <input type="text" id="faq-form-variation-input" placeholder="Add a question variation (e.g. How can I get admission?)">
+                                <button type="button" id="btn-add-variation-chip" class="btn btn-secondary">
+                                    <i class="fa-solid fa-plus"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="faq-form-answer">Official Answer</label>
+                        <textarea id="faq-form-answer" rows="5" placeholder="Provide the detailed, accurate response to this FAQ..." required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-close-target="modal-faq-form">Cancel</button>
+                <button type="button" id="btn-save-faq" class="btn btn-primary">Save FAQ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast System -->
+    <div id="toast-container" class="toast-wrapper"></div>
+
+    <!-- Script File -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
