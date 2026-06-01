@@ -1,0 +1,6 @@
+Flask==3.0.3
+nltk==3.8.1
+scikit-learn==1.4.2
+numpy==1.26.4
+gunicorn==22.0.0
+pyspellchecker==0.8.1

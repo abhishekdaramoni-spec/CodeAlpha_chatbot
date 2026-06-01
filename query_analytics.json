@@ -1,0 +1,134 @@
+[
+  {
+    "id": "b89123d9-739a-4ab6-b699-de224fc03d60",
+    "timestamp": "2026-06-01T10:40:18.137137",
+    "user_query": "hello I need to know about",
+    "corrected_query": "hello I need to know about",
+    "matched_faq_id": 30,
+    "matched_faq_question": "Are mental health counseling services available for students?",
+    "confidence": 0.3674,
+    "category": "Support",
+    "feedback": null
+  },
+  {
+    "id": "33b37e74-06b2-4b0a-8443-9119937d48c7",
+    "timestamp": "2026-06-01T10:57:41.120233",
+    "user_query": "I want to know about college environment",
+    "corrected_query": "I want to know about college environment",
+    "matched_faq_id": 23,
+    "matched_faq_question": "What are the most popular majors at the university?",
+    "confidence": 0.5444,
+    "category": "Academics",
+    "feedback": null
+  },
+  {
+    "id": "cd91a648-d64d-46ca-a639-02a9b7cbc083",
+    "timestamp": "2026-06-01T10:59:52.027848",
+    "user_query": "is there any scholarship provided",
+    "corrected_query": "is there any scholarship provided",
+    "matched_faq_id": 16,
+    "matched_faq_question": "What merit-based scholarships are available for incoming freshmen?",
+    "confidence": 0.7883,
+    "category": "Financials",
+    "feedback": null
+  },
+  {
+    "id": "21c605a0-60a0-465f-b3d8-7c5a3eadef39",
+    "timestamp": "2026-06-01T11:00:25.870657",
+    "user_query": "what is the minimum percentage you should have to enroll in this",
+    "corrected_query": "what is the minimum percentage you should have to enroll in this",
+    "matched_faq_id": 1,
+    "matched_faq_question": "What are the general admission requirements?",
+    "confidence": 0.7126,
+    "category": "Admissions",
+    "feedback": null
+  },
+  {
+    "id": "543ff359-7760-4249-a20a-48ce2833fe1c",
+    "timestamp": "2026-06-01T11:20:17.503242",
+    "user_query": "I want to know about the college admission",
+    "corrected_query": "I want to know about the college admission",
+    "matched_faq_id": 1,
+    "matched_faq_question": "What are the general admission requirements?",
+    "confidence": 0.7339,
+    "category": "Admissions",
+    "feedback": null
+  },
+  {
+    "id": "bc3a57cc-ff5c-48b9-ba33-82e5cbbdbd2f",
+    "timestamp": "2026-06-01T11:20:38.375502",
+    "user_query": "I want to know about the food in the college",
+    "corrected_query": "I want to know about the food in the college",
+    "matched_faq_id": 40,
+    "matched_faq_question": "What meal plans are available, and where can they be used?",
+    "confidence": 0.6715,
+    "category": "Campus Life",
+    "feedback": null
+  },
+  {
+    "id": "f349477e-9f55-4692-a22b-d7da63f7a2dd",
+    "timestamp": "2026-06-01T11:21:04.856808",
+    "user_query": "I want to know about the transportation facilities in the college",
+    "corrected_query": "I want to know about the transportation facilities in the college",
+    "matched_faq_id": 39,
+    "matched_faq_question": "What public transportation options serve the campus?",
+    "confidence": 0.7369,
+    "category": "Campus Life",
+    "feedback": null
+  },
+  {
+    "id": "5d4ead3f-e948-4fa1-8b0c-a59770777700",
+    "timestamp": "2026-06-01T11:25:09.525852",
+    "user_query": "How can I book a campus tour?",
+    "corrected_query": "How can I book a campus tour",
+    "matched_faq_id": 43,
+    "matched_faq_question": "How can I book a campus tour?",
+    "confidence": 0.9949,
+    "category": "Admissions",
+    "feedback": null
+  },
+  {
+    "id": "8b26e2de-ed36-4168-afe6-a5c70c6cca3c",
+    "timestamp": "2026-06-01T11:39:38.315660",
+    "user_query": "how can I get admission",
+    "corrected_query": "how can I get admission",
+    "matched_faq_id": 1,
+    "matched_faq_question": "What are the general admission requirements?",
+    "confidence": 0.9942,
+    "category": "Admissions",
+    "feedback": null
+  },
+  {
+    "id": "0892de34-d4f3-4a7b-91ce-3776dd2e6be3",
+    "timestamp": "2026-06-01T11:40:01.001589",
+    "user_query": "what documents are required for enrollment",
+    "corrected_query": "what documents are required for enrollment",
+    "matched_faq_id": 1,
+    "matched_faq_question": "What are the general admission requirements?",
+    "confidence": 0.8145,
+    "category": "Admissions",
+    "feedback": null
+  },
+  {
+    "id": "5a83acce-f8f4-4570-8fa2-f24399ddf1e0",
+    "timestamp": "2026-06-01T11:40:28.818683",
+    "user_query": "I need financial assistance for college",
+    "corrected_query": "I need financial assistance for college",
+    "matched_faq_id": 17,
+    "matched_faq_question": "How do I apply for financial aid?",
+    "confidence": 1.0,
+    "category": "Financials",
+    "feedback": null
+  },
+  {
+    "id": "53b06206-4900-4c4a-8e70-9c4f9b4ceada",
+    "timestamp": "2026-06-01T11:40:53.924703",
+    "user_query": "appliction deadlin",
+    "corrected_query": "application deadline",
+    "matched_faq_id": 3,
+    "matched_faq_question": "What is the application deadline for the Spring semester?",
+    "confidence": 0.8188,
+    "category": "Admissions",
+    "feedback": null
+  }
+]

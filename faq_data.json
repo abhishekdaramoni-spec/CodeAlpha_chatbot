@@ -1,0 +1,673 @@
+[
+  {
+    "id": 1,
+    "category": "Admissions",
+    "question": "What are the general admission requirements?",
+    "variations": [
+      "How can I get admission?",
+      "What documents are needed for admission?",
+      "Eligibility for joining?",
+      "Requirements to enroll?",
+      "Admission criteria?",
+      "What should I submit for admission?"
+    ],
+    "answer": "To apply for undergraduate admission, you must submit a completed online application, official high school transcripts, two letters of recommendation, a personal statement, and a $50 application fee. SAT/ACT scores are optional but can be submitted to strengthen your profile. Minimum recommended GPA is 3.0 on a 4.0 scale."
+  },
+  {
+    "id": 2,
+    "category": "Admissions",
+    "question": "What is the application deadline for the Fall semester?",
+    "variations": [
+      "When must I submit my application for fall?",
+      "Fall admission deadline?",
+      "By when should I apply for fall semester?",
+      "Last date to apply for fall?",
+      "When do fall applications close?"
+    ],
+    "answer": "For the Fall semester, the Early Action deadline is November 1st, and the Regular Decision deadline is January 15th. Transfer application deadline is March 1st. Late submissions are considered on a space-available basis."
+  },
+  {
+    "id": 3,
+    "category": "Admissions",
+    "question": "What is the application deadline for the Spring semester?",
+    "variations": [
+      "Spring application deadline?",
+      "When are spring applications due?",
+      "Last date for spring admission?",
+      "By when should I apply for spring?"
+    ],
+    "answer": "The application deadline for the Spring semester is November 1st for all domestic applicants and October 1st for international applicants to allow sufficient time for visa processing."
+  },
+  {
+    "id": 4,
+    "category": "Admissions",
+    "question": "How can I request an application fee waiver?",
+    "variations": [
+      "Can I get a fee waiver?",
+      "Is the application fee waivable?",
+      "How to avoid paying the application fee?",
+      "Who qualifies for a fee waiver?",
+      "Free application submission eligibility?"
+    ],
+    "answer": "Application fee waivers are available for students who demonstrate financial need. You can request a waiver through the Common Application by having your high school counselor submit a fee waiver verification, or by submitting documentation such as College Board/ACT waiver forms, or proof of enrollment in federal free/reduced lunch programs."
+  },
+  {
+    "id": 5,
+    "category": "Admissions",
+    "question": "What are the requirements for transfer students?",
+    "variations": [
+      "How to apply as a transfer student?",
+      "Transfer admission criteria?",
+      "I want to transfer from another college.",
+      "Documents needed for transfer applicants?",
+      "Credit requirements to transfer?",
+      "Can I transfer from a different college?",
+      "I am in another college and want to join.",
+      "Can I join your university if I am currently in a different college?"
+    ],
+    "answer": "Transfer applicants must submit college transcripts from all previously attended institutions, high school transcripts (if they have completed fewer than 30 college credits), and a statement of good standing. A minimum college GPA of 2.5 is required for transfer consideration."
+  },
+  {
+    "id": 6,
+    "category": "International",
+    "question": "What are the English proficiency requirements for international students?",
+    "variations": [
+      "Do I need TOEFL or IELTS?",
+      "English test requirements for international applicants?",
+      "Is English proficiency mandatory?",
+      "What is the minimum TOEFL score?",
+      "Duolingo English test accepted?"
+    ],
+    "answer": "International students whose primary language of instruction was not English must demonstrate proficiency. We accept TOEFL iBT (minimum score 80), IELTS (minimum band 6.5), or Duolingo English Test (minimum score 110). Waivers may be granted if you have studied in an English-speaking country for at least three years."
+  },
+  {
+    "id": 7,
+    "category": "Admissions",
+    "question": "Is there a minimum GPA requirement for admission?",
+    "variations": [
+      "What GPA is needed?",
+      "Can I get in with a low GPA?",
+      "Is GPA important for admission?",
+      "Minimum grade point average required?",
+      "What is the cut-off GPA?"
+    ],
+    "answer": "While we do not enforce a strict cut-off GPA, the average GPA of admitted freshman is 3.4. Applicants with a GPA below 3.0 are strongly encouraged to submit SAT/ACT scores and an explanatory personal statement to strengthen their application."
+  },
+  {
+    "id": 8,
+    "category": "Admissions",
+    "question": "Are standardized test scores (SAT/ACT) required?",
+    "variations": [
+      "Is SAT mandatory?",
+      "Do I need to submit ACT scores?",
+      "Are you test-optional?",
+      "Should I send my SAT scores?",
+      "Can I apply without ACT?"
+    ],
+    "answer": "Our university is test-optional for undergraduate admissions. You are not required to submit SAT or ACT scores. If you choose to submit them, they will be reviewed as part of a holistic evaluation, but students who choose not to submit test scores will not be disadvantaged in the admissions or scholarship process."
+  },
+  {
+    "id": 9,
+    "category": "Admissions",
+    "question": "What documents must be submitted for a freshman application?",
+    "variations": [
+      "What checklist of files do I need to send?",
+      "freshman application checklist?",
+      "What papers are required for freshmen?",
+      "Submitting transcripts and letters?",
+      "List of required documents for application",
+      "Checklist of files for application",
+      "Can you give me a list of all documents required for application?"
+    ],
+    "answer": "Freshman applicants must submit: 1) Completed Common App or Coalition App, 2) Official High School Transcripts, 3) Two Letters of Recommendation (one from counselor, one from teacher), 4) Personal Essay, and 5) $50 application fee (or waiver). Standardized test scores and resumes are optional."
+  },
+  {
+    "id": 10,
+    "category": "Admissions",
+    "question": "Can I defer my admission to a later semester?",
+    "variations": [
+      "How to request a gap year?",
+      "Can I delay my enrollment?",
+      "Admission deferral policy?",
+      "Can I postpone starting college?",
+      "Deferring admission offer?"
+    ],
+    "answer": "Yes, admitted students may request to defer their enrollment for up to one academic year (e.g., from Fall to the following Fall). To defer, you must accept your admission offer, pay the non-refundable $200 enrollment deposit, and submit the Deferral Request Form by June 1st. Deferrals are subject to approval and are not permitted for students planning to enroll at another college during the deferral period."
+  },
+  {
+    "id": 11,
+    "category": "Admissions",
+    "question": "How can I check the status of my application?",
+    "variations": [
+      "Where to see my application status?",
+      "Has my application been received?",
+      "Application portal login details?",
+      "How do I know if my documents arrived?",
+      "Checking admission status?",
+      "Where to login to see if I am accepted?",
+      "Accepted status check login?",
+      "Where can I log in to see if I got accepted?"
+    ],
+    "answer": "Once you submit your application, you will receive an email within 48 hours containing credentials for your Applicant Portal. You can log in to the portal at any time to view a checklist of received and missing documents, update your contact details, and view your admission decision when released."
+  },
+  {
+    "id": 12,
+    "category": "Housing",
+    "question": "Is on-campus housing guaranteed for freshmen?",
+    "variations": [
+      "Do freshmen have to live on campus?",
+      "Is freshman housing guaranteed?",
+      "Will I get a dorm room as a freshman?",
+      "Dormitory availability for new students?",
+      "Where do I sleep on campus?",
+      "Sleeping accommodations on campus?"
+    ],
+    "answer": "Yes, on-campus housing is guaranteed for all incoming full-time freshman students, provided they submit their Housing Application and deposit by the May 1st priority deadline. Living on campus is highly recommended to foster a smooth transition to college life."
+  },
+  {
+    "id": 13,
+    "category": "Housing",
+    "question": "How do I apply for on-campus housing?",
+    "variations": [
+      "How to get a dorm room?",
+      "Dorm application process?",
+      "Signing up for student housing?",
+      "When does housing application open?",
+      "Dorm room request form?"
+    ],
+    "answer": "After paying your enrollment deposit, you can log in to the Student Housing Portal. There, you will complete the housing profile, answer lifestyle preference questions (for roommate matching), select your meal plan, and pay the $100 housing deposit. The application opens on February 1st and closes on May 1st."
+  },
+  {
+    "id": 14,
+    "category": "Financials",
+    "question": "What is the annual cost of tuition at the university?",
+    "variations": [
+      "How much is tuition?",
+      "Tuition fees per year?",
+      "Cost of attendance?",
+      "How expensive is study here?",
+      "Undergraduate tuition rate?"
+    ],
+    "answer": "For the current academic year, undergraduate tuition for in-state residents is $11,500 per year, and out-of-state tuition is $28,200 per year. These rates do not include housing, meals, textbooks, or mandatory student fees (approx. $1,200/year)."
+  },
+  {
+    "id": 15,
+    "category": "Financials",
+    "question": "What is the estimated cost of room and board?",
+    "variations": [
+      "How much does dorm and food cost?",
+      "Room and board fees?",
+      "Cost of living on campus?",
+      "How much is student housing and dining?",
+      "Average cost of campus meals and accommodation?"
+    ],
+    "answer": "The average cost of on-campus housing (double occupancy room) combined with an unlimited dining meal plan is approximately $12,800 per academic year. Costs vary depending on whether you choose a single room, suite, or a different dining tier."
+  },
+  {
+    "id": 16,
+    "category": "Financials",
+    "question": "What merit-based scholarships are available for incoming freshmen?",
+    "variations": [
+      "Are there scholarships for high GPA?",
+      "How to get merit scholarships?",
+      "Do you offer academic scholarships?",
+      "Financial awards for freshmen?",
+      "Scholarship options for good grades?",
+      "Scholarships for high school grades?",
+      "Academic awards for high school students?",
+      "Are there any academic awards for high school grades?"
+    ],
+    "answer": "We offer several merit scholarships ranging from $2,000 to full tuition per year. All freshman applicants are automatically evaluated for merit scholarships based on academic records (GPA, course rigor, and optional test scores). No separate scholarship application is required; recipients are notified within their admission letter."
+  },
+  {
+    "id": 17,
+    "category": "Financials",
+    "question": "How do I apply for financial aid?",
+    "variations": [
+      "How to submit FAFSA?",
+      "Applying for financial support?",
+      "Need-based financial aid process?",
+      "How to get college grants or loans?",
+      "Financing my education?",
+      "I need financial assistance for college",
+      "How to get financial assistance?",
+      "Where can I get financial help?",
+      "Financial assistance options?"
+    ],
+    "answer": "To apply for need-based financial aid, federal grants, work-study, and student loans, you must complete the Free Application for Federal Student Aid (FAFSA) online at studentaid.gov. Use our school code 001234 to send your data to our financial aid office."
+  },
+  {
+    "id": 18,
+    "category": "Financials",
+    "question": "What is the deadline for submitting the FAFSA?",
+    "variations": [
+      "When is FAFSA due?",
+      "Financial aid priority deadline?",
+      "By when should I submit FAFSA?",
+      "FAFSA deadline date?"
+    ],
+    "answer": "Our priority deadline for submitting the FAFSA is March 1st. Submitting by this date ensures maximum consideration for university grants, institutional scholarships, and state-funded programs. Applications submitted after March 1st are processed on a rolling, first-come, first-served basis."
+  },
+  {
+    "id": 19,
+    "category": "Financials",
+    "question": "How does the federal work-study program work?",
+    "variations": [
+      "Am I eligible for work study?",
+      "What is work study?",
+      "How to get a work-study job?",
+      "On-campus student employment aid?",
+      "Work-study jobs process?",
+      "Apply for on-campus student jobs under financial aid",
+      "Federal work-study financial aid jobs?",
+      "How do I apply for on-campus student jobs under financial aid?"
+    ],
+    "answer": "Federal Work-Study provides part-time jobs for undergraduate students with financial need, allowing them to earn money to help pay education expenses. If awarded work-study in your financial aid package, you can browse and apply for eligible on-campus jobs through our Student Career Portal. You are paid bi-weekly via direct deposit."
+  },
+  {
+    "id": 20,
+    "category": "Financials",
+    "question": "Does the university offer monthly tuition payment plans?",
+    "variations": [
+      "Can I pay tuition in installments?",
+      "Payment plans for college fees?",
+      "Monthly installments for fees?",
+      "How to pay tuition over time?",
+      "Is there a payment installment scheme?"
+    ],
+    "answer": "Yes, our Bursar's Office offers interest-free monthly payment plans. You can split your semester's balance into 3, 4, or 5 monthly installments. An enrollment fee of $45 per semester is required to enroll in a payment plan."
+  },
+  {
+    "id": 21,
+    "category": "Academics",
+    "question": "What is the average class size at the university?",
+    "variations": [
+      "How big are the classes?",
+      "Average class size?",
+      "Are classrooms crowded?",
+      "Will I be in huge lecture halls?",
+      "Typical class student count?"
+    ],
+    "answer": "The average class size is 28 students. While introductory freshman lectures may have 80-100 students, over 75% of our upper-level courses and seminars have fewer than 20 students, ensuring personalized attention and interactive learning."
+  },
+  {
+    "id": 22,
+    "category": "Academics",
+    "question": "What is the student-to-faculty ratio?",
+    "variations": [
+      "Student faculty ratio?",
+      "How many students per professor?",
+      "Is there a good ratio of teachers to students?",
+      "Teacher to student proportion?"
+    ],
+    "answer": "Our student-to-faculty ratio is 16:1. This excellent ratio allows students to build strong professional relationships with professors, secure undergraduate research opportunities, and receive high-quality mentorship."
+  },
+  {
+    "id": 23,
+    "category": "Academics",
+    "question": "What are the most popular majors at the university?",
+    "variations": [
+      "What are your best programs?",
+      "Popular degrees?",
+      "Which majors are famous here?",
+      "What should I study at this college?",
+      "Top programs at the university?"
+    ],
+    "answer": "Our most popular undergraduate programs are Computer Science, Business Administration, Nursing, Mechanical Engineering, and Psychology. We are also highly ranked for our pre-med track and environmental science programs."
+  },
+  {
+    "id": 24,
+    "category": "Academics",
+    "question": "How do I go about changing my major?",
+    "variations": [
+      "Can I switch my major?",
+      "How to change my degree path?",
+      "Process to declare a new major?",
+      "Changing from one major to another?",
+      "Switching majors guide?"
+    ],
+    "answer": "Changing your major is straightforward. You must meet with your current academic advisor to discuss the transition, obtain approval from the department chair of the new major, and complete a Change of Major Form in the Registrar's portal. Freshmen are encouraged to explore before declaring a final major by the end of sophomore year."
+  },
+  {
+    "id": 25,
+    "category": "Academics",
+    "question": "Can I pursue a double major or a minor?",
+    "variations": [
+      "Is double majoring allowed?",
+      "How to add a minor?",
+      "Can I study two subjects?",
+      "Double degree options?",
+      "Can I minor in something else?",
+      "Can I choose two majors at the same time?",
+      "Can I study two majors at once?"
+    ],
+    "answer": "Yes, students in good academic standing can pursue a double major or add one or more minors to their degree. You will need to coordinate with advisors from both departments to create a graduation plan that satisfies all course requirements, usually achievable within four years with careful planning."
+  },
+  {
+    "id": 26,
+    "category": "Academics",
+    "question": "What study abroad opportunities are available?",
+    "variations": [
+      "Can I study in another country?",
+      "Study abroad programs?",
+      "Does the school offer international exchange?",
+      "Semester abroad requirements?",
+      "Where can I study abroad?"
+    ],
+    "answer": "We offer study abroad programs in over 45 countries, including semester-long exchanges, summer programs, and faculty-led short trips. Programs are available for all majors, and your existing financial aid and scholarships can often be applied to approved study abroad semesters."
+  },
+  {
+    "id": 27,
+    "category": "Support",
+    "question": "What career services and internship placement assistance are offered?",
+    "variations": [
+      "Do you help with job placement?",
+      "Internship opportunities?",
+      "Career center services?",
+      "Finding a job after graduation?",
+      "Resume help and mock interviews?"
+    ],
+    "answer": "Our Career Development Center offers lifetime assistance, including resume and cover letter reviews, mock interviews, career workshops, and networking events. We host major career fairs twice a year and run a dedicated portal with thousands of internship and full-time job postings."
+  },
+  {
+    "id": 28,
+    "category": "Campus Life",
+    "question": "What safety and security measures are in place on campus?",
+    "variations": [
+      "Is campus safe?",
+      "Campus security details?",
+      "Emergency blue lights?",
+      "Is there a campus police force?",
+      "Late-night safety escort service?"
+    ],
+    "answer": "Our campus is highly secure, featuring a 24/7 state-certified Police Department, over 150 blue-light emergency phones, security-controlled dorm access, and well-lit walkways. We also offer a free night shuttle and walking safety escorts."
+  },
+  {
+    "id": 29,
+    "category": "Support",
+    "question": "What medical and health services are available on campus?",
+    "variations": [
+      "Is there a clinic on campus?",
+      "Student health center info?",
+      "What if I get sick?",
+      "Doctor on campus?",
+      "Where is the campus medical center?"
+    ],
+    "answer": "The Student Health Center operates a full-service outpatient clinic staffed by board-certified physicians and nurse practitioners. Services include treatment for minor illnesses, immunizations, physicals, lab testing, and prescription filling. Consultations are free; tests and medications are billed at low cost."
+  },
+  {
+    "id": 30,
+    "category": "Support",
+    "question": "Are mental health counseling services available for students?",
+    "variations": [
+      "Free therapy for students?",
+      "Counseling center services?",
+      "I need someone to talk to.",
+      "Mental health support on campus?",
+      "Psychologist availability?"
+    ],
+    "answer": "Yes, our Counseling Center provides free, confidential mental health services, including individual counseling, group therapy, crisis intervention, and wellness workshops. Licensed psychologists and counselors are available, and no insurance is required for visits."
+  },
+  {
+    "id": 31,
+    "category": "Support",
+    "question": "How do I register for disability support services?",
+    "variations": [
+      "Academic accommodations for ADHD?",
+      "Disability accommodations?",
+      "Learning disability support?",
+      "Wheelchair accessibility on campus?",
+      "Extra time on exams request?"
+    ],
+    "answer": "The Office of Accessibility Services coordinates academic and housing accommodations for students with documented physical, psychological, or learning disabilities. To register, submit an online request along with professional documentation. Once approved, you will receive accommodation letters for your instructors."
+  },
+  {
+    "id": 32,
+    "category": "Support",
+    "question": "Are tutoring and academic support services free?",
+    "variations": [
+      "Is tutoring free?",
+      "Where to get math help?",
+      "Writing center details?",
+      "Academic assistance resources?",
+      "How to get help with difficult classes?"
+    ],
+    "answer": "Yes, all tutoring and academic support services are entirely free for registered students. The Academic Success Center offers peer tutoring in major subjects, and our dedicated Writing Center assists with drafting essays, research papers, and reports."
+  },
+  {
+    "id": 33,
+    "category": "Campus Life",
+    "question": "What are the hours and resources of the university library?",
+    "variations": [
+      "Library opening hours?",
+      "Is the library open 24/7?",
+      "Library study spaces booking?",
+      "University research database access?"
+    ],
+    "answer": "The main library is open 24 hours a day from Monday through Thursday, closes at 10 PM on Fridays, and is open from 10 AM to 10 PM on weekends. It provides silent study floors, collaborative group study rooms (reservable online), digital media labs, and access to millions of physical and online research databases."
+  },
+  {
+    "id": 34,
+    "category": "Campus Life",
+    "question": "How many student clubs and organizations are active?",
+    "variations": [
+      "What clubs can I join?",
+      "Student organizations list?",
+      "Extracurricular activities?",
+      "Are there hobby groups on campus?",
+      "How to get involved in student life?"
+    ],
+    "answer": "We have over 220 active student clubs and organizations, including academic societies, cultural groups, performing arts clubs, volunteer organizations, gaming clubs, and student government. A Club Fair is hosted at the start of each semester where you can meet club leaders and sign up."
+  },
+  {
+    "id": 35,
+    "category": "Campus Life",
+    "question": "What is the process to join Greek Life (fraternities and sororities)?",
+    "variations": [
+      "How to join a fraternity?",
+      "Greek life rushing process?",
+      "Are there sororities on campus?",
+      "Frat house recruitment requirements?"
+    ],
+    "answer": "Greek Life consists of 18 recognized fraternities and sororities. Recruitment (often called 'rush') takes place during the first few weeks of both Fall and Spring semesters. To participate, you must have completed at least 12 university credits and maintain a minimum cumulative GPA of 2.5."
+  },
+  {
+    "id": 36,
+    "category": "Campus Life",
+    "question": "What fitness and recreation facilities are open to students?",
+    "variations": [
+      "Is there a student gym?",
+      "Recreation center hours?",
+      "Swimming pool on campus?",
+      "Are fitness classes free?",
+      "Gym membership cost for students?"
+    ],
+    "answer": "The Campus Recreation Center is free for all full-time students. It features state-of-the-art cardio and weight equipment, an indoor running track, a junior Olympic-size swimming pool, basketball courts, and climbing walls. Free group fitness classes (yoga, spin, HIIT) are offered daily."
+  },
+  {
+    "id": 37,
+    "category": "Campus Life",
+    "question": "What athletic division and sports teams does the university support?",
+    "variations": [
+      "Are you Division 1?",
+      "Varsity sports teams?",
+      "College athletic program?",
+      "What mascot do we have?",
+      "Student sports tickets cost?"
+    ],
+    "answer": "Our university competes in NCAA Division I athletics as the 'Sunrise Suns'. We support 16 varsity sports teams including football, basketball, soccer, track and field, and volleyball. Student tickets to all home regular-season games are completely free with a valid student ID."
+  },
+  {
+    "id": 38,
+    "category": "Campus Life",
+    "question": "Are freshmen allowed to bring cars and park on campus?",
+    "variations": [
+      "Can freshmen have cars?",
+      "Student parking permits cost?",
+      "Where do I park my car?",
+      "Freshman parking rules?"
+    ],
+    "answer": "Yes, freshmen are permitted to bring vehicles to campus. However, you must purchase a student parking permit (approx. $180/year) and park within designated student lots (Zones B and C). Spaces are limited, and purchasing your permit early is advised."
+  },
+  {
+    "id": 39,
+    "category": "Campus Life",
+    "question": "What public transportation options serve the campus?",
+    "variations": [
+      "Is there a campus shuttle?",
+      "Bus routes near campus?",
+      "How to get around without a car?",
+      "Public transit for students?"
+    ],
+    "answer": "The campus is served by a comprehensive, free campus shuttle network that loops around classrooms, dorms, and local shopping centers. Additionally, local city bus routes stop directly at the student union, and students can ride all city transit for free using their student ID card."
+  },
+  {
+    "id": 40,
+    "category": "Campus Life",
+    "question": "What meal plans are available, and where can they be used?",
+    "variations": [
+      "Meal plan options?",
+      "Where can I eat on campus?",
+      "How does the dining plan work?",
+      "Unlimited meal plan details?",
+      "Dining hall locations?"
+    ],
+    "answer": "We offer three primary meal plans: 1) The Unlimited Plan (ideal for freshmen, allows unlimited dining hall entries), 2) The 14-Meal Plan (provides 14 meals per week plus $200 dining dollars), and 3) The Block 80 Plan (80 meals per semester, best for commuters). These can be used at our two main all-you-care-to-eat dining halls and six retail food courts including Starbucks and Subway."
+  },
+  {
+    "id": 41,
+    "category": "Campus Life",
+    "question": "How are dietary restrictions accommodated in the dining halls?",
+    "variations": [
+      "Is there vegetarian food?",
+      "Gluten free dining options?",
+      "Halal or Kosher meals available?",
+      "Allergy accommodations in food courts?",
+      "Vegan dining hall options?"
+    ],
+    "answer": "Our dining services team accommodates various dietary needs. Both main dining halls feature dedicated stations for allergen-free, gluten-free, vegan, vegetarian, and halal options. A full-time campus dietitian is available for individual consultations to design customized meal safety plans."
+  },
+  {
+    "id": 42,
+    "category": "Financials",
+    "question": "Are part-time campus job opportunities available?",
+    "variations": [
+      "Can I work on campus?",
+      "Part-time student jobs?",
+      "How to find student employment?",
+      "Jobs at the student union or library?"
+    ],
+    "answer": "Yes, the university employs over 1,500 students in part-time roles including library assistants, tour guides, dining hall staff, lab assistants, and recreation supervisors. Open positions are posted on our Student Career Portal. Student workers can work up to 20 hours per week during the semester."
+  },
+  {
+    "id": 43,
+    "category": "Admissions",
+    "question": "How can I book a campus tour?",
+    "variations": [
+      "Can I visit the campus?",
+      "Campus visit schedule?",
+      "How to register for a tour?",
+      "Guided tours for prospective students?",
+      "In-person campus tour booking?"
+    ],
+    "answer": "In-person campus tours are offered Monday through Saturday at 10 AM and 2 PM. Tours are led by student ambassadors and cover academic buildings, dorms, dining facilities, and student spaces. You can book your tour online at least one week in advance at university.edu/visit."
+  },
+  {
+    "id": 44,
+    "category": "Admissions",
+    "question": "Do you offer virtual information sessions or virtual tours?",
+    "variations": [
+      "Is there an online tour?",
+      "Virtual information session?",
+      "Can I tour the school online?",
+      "Web-based campus visit options?"
+    ],
+    "answer": "Yes, we host live virtual information sessions with admissions counselors every Tuesday at 6 PM. We also offer a fully immersive 360-degree interactive virtual campus tour on our website, allowing you to explore classrooms, residence halls, and athletic facilities from home."
+  },
+  {
+    "id": 45,
+    "category": "Admissions",
+    "question": "When is new student orientation?",
+    "variations": [
+      "Orientation dates?",
+      "When does freshman orientation start?",
+      "Is orientation mandatory?",
+      "Orientation schedule for new admits?"
+    ],
+    "answer": "New Student Orientation is hosted in late August (the week before Fall classes start) for Fall admits, and in mid-January for Spring admits. Orientation is mandatory and features academic advising, course registration confirmation, social events, and campus familiarization workshops."
+  },
+  {
+    "id": 46,
+    "category": "Admissions",
+    "question": "When are admission decisions released?",
+    "variations": [
+      "When will I know if I got accepted?",
+      "Admission decision release dates?",
+      "When do decision letters go out?",
+      "How long to get admission results?"
+    ],
+    "answer": "For Fall applicants, Early Action decisions are released on December 15th, and Regular Decisions are released on April 1st. Transfer and Spring decisions are processed on a rolling basis, typically within 3 to 4 weeks after the application file is complete."
+  },
+  {
+    "id": 47,
+    "category": "Admissions",
+    "question": "How do I accept my admission offer and pay the deposit?",
+    "variations": [
+      "Accepting my admission offer?",
+      "How to pay enrollment deposit?",
+      "Securing my spot at the university?",
+      "How to confirm my acceptance?"
+    ],
+    "answer": "To accept your admission offer, log in to your Applicant Portal and click the 'Accept Admission' button. You must pay the non-refundable $200 enrollment deposit via credit card or electronic check. This deposit secures your spot in the incoming class and enables you to register for housing and orientation."
+  },
+  {
+    "id": 48,
+    "category": "Admissions",
+    "question": "What is the enrollment deposit deadline?",
+    "variations": [
+      "When is enrollment deposit due?",
+      "Last date to pay deposit?",
+      "Deadline to accept admission offer?",
+      "Deposit due date?"
+    ],
+    "answer": "The enrollment deposit deadline for freshman Fall applicants is National Decision Day, May 1st. For Spring applicants, the deadline is December 1st. Failure to pay the deposit by these dates may result in the forfeiture of your admission offer."
+  },
+  {
+    "id": 49,
+    "category": "Academics",
+    "question": "What is the credit transfer policy for AP, IB, or dual-enrollment classes?",
+    "variations": [
+      "Do you accept AP credits?",
+      "IB credit policy?",
+      "Dual enrollment transfer credits?",
+      "Getting credit for high school classes?"
+    ],
+    "answer": "We grant college credit for Advanced Placement (AP) exam scores of 3 or higher, and International Baccalaureate (IB) Higher Level (HL) exam scores of 5 or higher. Dual-enrollment credits are accepted from accredited colleges if you earned a grade of C or higher and the course is equivalent to a university course."
+  },
+  {
+    "id": 50,
+    "category": "Support",
+    "question": "Are there computer and technology requirements for students?",
+    "variations": [
+      "Do I need a laptop?",
+      "Computer specifications for classes?",
+      "Is a Mac or Windows laptop better?",
+      "Required technology for coursework?",
+      "Are campus computer labs available?"
+    ],
+    "answer": "All students are required to have access to a personal laptop. While most majors can use either Windows or macOS, Engineering and Computer Science students are strongly advised to use Windows due to specialized software compatibility. We offer student discounts on Dell and Apple laptops and operate multiple high-speed computer labs across campus."
+  },
+  {
+    "id": 51,
+    "category": "Support",
+    "question": "What mentoring and alumni networking opportunities are available?",
+    "variations": [
+      "Is there a mentoring program?",
+      "Alumni networking support?",
+      "Can I connect with graduates?",
+      "Student alumni career association?",
+      "Finding an industry mentor?"
+    ],
+    "answer": "Yes! Our Office of Alumni Relations manages the Sunrise Connection Portal, linking current students with over 80,000 active alumni worldwide for formal mentoring programs, informational interviews, and career networking. We also host local alumni-student dinner networking events throughout the year."
+  }
+]
