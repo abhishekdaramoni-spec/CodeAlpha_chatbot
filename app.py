@@ -6,6 +6,18 @@ import logging
 import uuid
 from datetime import datetime
 from flask import Flask, request, jsonify, render_template, send_file
+import os
+import nltk
+
+nltk_data_dir = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "nltk_data"
+)
+
+os.makedirs(nltk_data_dir, exist_ok=True)
+
+if nltk_data_dir not in nltk.data.path:
+    nltk.data.path.append(nltk_data_dir)
 
 # Configure Logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
