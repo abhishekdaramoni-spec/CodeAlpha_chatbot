@@ -1119,13 +1119,13 @@ body {
 }
 
 .admin-sidebar {
-    width: 280px;
+    width: 320px;
     background: var(--bg-tertiary);
     border-right: 1px solid var(--glass-border);
-    padding: 28px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 20px;
 }
 
 .admin-profile-box {
@@ -1204,23 +1204,23 @@ body {
 
 .admin-actions-menu {
     margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
 }
 
 .admin-menu-btn {
     width: 100%;
-    padding: 11px 16px;
-    border-radius: var(--radius-sm);
-    font-size: 13px;
+    min-height: 60px;
+    border-radius: 16px;
+    font-size: 14px;
     font-weight: 700;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    transition: var(--transition-smooth);
+    transition: all .3s ease;
     border: 1px solid var(--glass-border);
 }
 
@@ -1232,7 +1232,8 @@ body {
 }
 
 .admin-menu-btn.primary-action:hover {
-    transform: scale(1.02);
+    transform: translateY(-3px);
+
     box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
 }
 
@@ -1263,6 +1264,24 @@ body {
     letter-spacing: 0.5px;
     text-align: center;
     margin: 6px 0;
+}
+.university-card {
+    margin-top: 20px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.university-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.university-card p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .cursor-pointer {
