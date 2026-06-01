@@ -1708,21 +1708,23 @@ body {
 
 /* ==========================================================================
    FOOTER STYLING
-   ========================================================================== */
-.app-footer {
-    border-top: 1px solid var(--glass-border);
-    background: var(--bg-tertiary);
-    padding: 32px 40px 24px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    z-index: 10;
+ ========================================================================== */
+@media (min-width: 769px) {
+    .app-footer {
+        border-top: 1px solid var(--glass-border);
+        background: var(--bg-tertiary);
+        padding: 8px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        z-index: 10;
+    }
 }
 
 .footer-grid {
-    display: grid;
+    display: none;
     grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
+   gap: 15px;
 }
 
 .footer-brand-col h3 {
@@ -1790,10 +1792,10 @@ body {
 }
 
 .footer-bottom-row {
-    border-top: 1px solid var(--glass-border);
-    padding-top: 18px;
+    border-top: none;
+    padding-top: 4px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
