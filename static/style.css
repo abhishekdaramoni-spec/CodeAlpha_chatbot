@@ -1127,8 +1127,8 @@ body {
     flex-direction: column;
     gap: 20px;
 
-    height: 100vh;
-    overflow-y: scroll;
+    height: 100%;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 .admin-sidebar::-webkit-scrollbar {
@@ -1214,10 +1214,34 @@ body {
 }
 
 .admin-actions-menu {
-    margin-top: auto;
+    margin-top: 20x;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
+}
+.admin-sidebar {
+    width: 320px;
+    background: var(--bg-tertiary);
+    border-right: 1px solid var(--glass-border);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.admin-actions-menu {
+    margin-top: 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.bulk-ops-divider {
+    grid-column: 1 / -1;
 }
 
 .admin-menu-btn {
