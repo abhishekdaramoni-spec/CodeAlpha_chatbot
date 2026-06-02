@@ -2206,3 +2206,130 @@ body {
 .autocomplete-suggestions::-webkit-scrollbar-thumb:hover {
     background: var(--text-muted);
 }
+/* =========================
+   MOBILE RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .app-wrapper {
+        width: 100vw;
+        height: 100vh;
+        min-height: auto;
+        border-radius: 0;
+    }
+
+    .app-header {
+        padding: 12px 15px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .brand-details h1 {
+        font-size: 18px;
+    }
+
+    .nav-actions {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .chat-intro-card {
+        padding: 25px 15px;
+    }
+
+    .chat-intro-card h2 {
+        font-size: 24px;
+    }
+
+    .metrics-dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .intro-hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-primary-gradient,
+    .btn-secondary-glass {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .category-filters-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px;
+    }
+
+    .chat-messages {
+        padding: 15px;
+    }
+
+    .message-wrapper {
+        max-width: 90%;
+    }
+
+    .bot-metadata {
+        min-width: auto;
+        max-width: 100%;
+    }
+
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chat-input-panel {
+        padding: 12px;
+    }
+
+    .input-form input {
+        font-size: 16px;
+    }
+
+    /* ADMIN PANEL */
+
+    .admin-container {
+        flex-direction: column;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+        max-height: 300px;
+    }
+
+    .admin-main-content {
+        padding: 15px;
+    }
+
+    .analytics-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-detail-split {
+        grid-template-columns: 1fr;
+    }
+
+    .feedback-stat-box {
+        grid-template-columns: 1fr;
+    }
+
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .search-filter-box {
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
