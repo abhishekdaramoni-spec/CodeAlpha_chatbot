@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
             } catch (e) {
-                logger.error("Failed to parse local history:", e);
+                console.error("Failed to parse local history:", e);
                 chatHistory = [];
             }
         }
@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 autocompleteDictionary = data.suggestions || [];
             }
         })
-        .catch(err => logger.error("Failed to fetch autocomplete corpus:", err));
+        .catch(err => console.error("Failed to fetch autocomplete corpus:", err));
     }
 
     chatInputField.addEventListener("input", () => {
