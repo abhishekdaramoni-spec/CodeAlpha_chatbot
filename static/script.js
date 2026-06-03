@@ -268,30 +268,37 @@ document.addEventListener("DOMContentLoaded", () => {
         speechRecognizer.maxAlternatives = 1;
 
         speechRecognizer.onstart = () => {
-            isRecordingVoice = true;
-            btnVoiceInput.classList.add("recording");
-            btnVoiceInput.setAttribute("title", "Listening... Click to stop.");
-            showToast("Microphone is active. Speak now!", "info");
-        };
+    console.log("🎤 Listening started");
 
-        speechRecognizer.onerror = (e) => {
-          console.error("Speech transcription error:", e.error);
-            showToast(`Voice input error: ${e.error}`, "error");
-            resetVoiceRecordingState();
-        };
+    isRecordingVoice = true;
+    btnVoiceInput.classList.add("recording");
+    btnVoiceInput.setAttribute("title", "Listening... Click to stop.");
+    showToast("Microphone is active. Speak now!", "info");
+};
 
-        speechRecognizer.onend = () => {
-            resetVoiceRecordingState();
-        };
+speechRecognizer.onerror = (e) => {
+    console.error("Speech Error:", e.error);
+    showToast(`Voice input error: ${e.error}`, "error");
+    resetVoiceRecordingState();
+};
 
-        speechRecognizer.onresult = (event) => {
-            const resultText = event.results[0][0].transcript;
-            if (resultText) {
-                chatInputField.value = resultText;
-                showToast(`Transcribed: "${resultText}"`, "success");
-                handleChatSubmit(); // Auto send message
-            }
-        };
+speechRecognizer.onend = () => {
+    console.log("🎤 Listening ended");
+    resetVoiceRecordingState();
+};
+
+speechRecognizer.onresult = (event) => {
+    console.log("🎤 Speech detected");
+
+    const resultText = event.results[0][0].transcript;
+    console.log("Transcript:", resultText);
+
+    if (resultText) {
+        chatInputField.value = resultText;
+        showToast(`Transcribed: "${resultText}"`, "success");
+        handleChatSubmit();
+    }
+};
 
         btnVoiceInput.addEventListener("click", () => {
             if (isRecordingVoice) {
