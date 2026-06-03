@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         speechRecognizer.onerror = (e) => {
-            logger.error("Speech transcription error:", e.error);
+          console.error("Speech transcription error:", e.error);
             showToast(`Voice input error: ${e.error}`, "error");
             resetVoiceRecordingState();
         };
@@ -303,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         // Speech not supported in browser
         btnVoiceInput.style.display = "none";
-        logger.info("SpeechRecognition API not supported in this browser.");
+        console.info("SpeechRecognition API not supported in this browser.");
     }
 
     function resetVoiceRecordingState() {
