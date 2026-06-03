@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- DOM Elements ---
     const htmlNode = document.documentElement;
     const btnThemeToggle = document.getElementById("btn-theme-toggle");
-    
+
     // View switching elements
     const btnChatView = document.getElementById("btn-chat-view");
     const btnAdminView = document.getElementById("btn-admin-view");
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function showToast(message, type = "success") {
         const toast = document.createElement("div");
         toast.className = `toast ${type}`;
-        
+
         let iconHtml = '<i class="fa-solid fa-circle-check toast-icon"></i>';
         if (type === "error") {
             iconHtml = '<i class="fa-solid fa-circle-exclamation toast-icon"></i>';
@@ -200,11 +200,11 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener("click", () => {
             adminTabBtns.forEach(b => b.classList.remove("active"));
             adminTabPanels.forEach(p => p.classList.remove("active"));
-            
+
             btn.classList.add("active");
             const targetPanelId = btn.getAttribute("data-tab");
             document.getElementById(targetPanelId).classList.add("active");
-            
+
             if (targetPanelId === "admin-tab-analytics") {
                 loadAdminAnalytics();
             } else if (targetPanelId === "admin-tab-faqs") {
@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-   // ==========================================================================
+    // ==========================================================================
     // 🎤 BROWSER SPEECH RECOGNITION (Voice Input)
     // ==========================================================================
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -268,37 +268,31 @@ document.addEventListener("DOMContentLoaded", () => {
         speechRecognizer.maxAlternatives = 1;
 
         speechRecognizer.onstart = () => {
-    console.log("🎤 Listening started");
+            isRecordingVoice = true;
+            btnVoiceInput.classList.add("recording");
+            btnVoiceInput.setAttribute("title", "Listening... Click to stop.");
+            showToast("Microphone is active. Speak now!", "info");
+        };
 
-    isRecordingVoice = true;
-    btnVoiceInput.classList.add("recording");
-    btnVoiceInput.setAttribute("title", "Listening... Click to stop.");
-    showToast("Microphone is active. Speak now!", "info");
-};
+        speechRecognizer.onerror = (e) => {
+            logger.error("Speech transcription error:", e.error);
+          console.error("Speech transcription error:", e.error);
+            showToast(`Voice input error: ${e.error}`, "error");
+            resetVoiceRecordingState();
+        };
 
-speechRecognizer.onerror = (e) => {
-    console.error("Speech Error:", e.error);
-    showToast(`Voice input error: ${e.error}`, "error");
-    resetVoiceRecordingState();
-};
+        speechRecognizer.onend = () => {
+            resetVoiceRecordingState();
+        };
 
-speechRecognizer.onend = () => {
-    console.log("🎤 Listening ended");
-    resetVoiceRecordingState();
-};
-
-speechRecognizer.onresult = (event) => {
-    console.log("🎤 Speech detected");
-
-    const resultText = event.results[0][0].transcript;
-    console.log("Transcript:", resultText);
-
-    if (resultText) {
-        chatInputField.value = resultText;
-        showToast(`Transcribed: "${resultText}"`, "success");
-        handleChatSubmit();
-    }
-};
+        speechRecognizer.onresult = (event) => {
+            const resultText = event.results[0][0].transcript;
+            if (resultText) {
+                chatInputField.value = resultText;
+                showToast(`Transcribed: "${resultText}"`, "success");
+                handleChatSubmit(); // Auto send message
+            }
+        };
 
         btnVoiceInput.addEventListener("click", () => {
             if (isRecordingVoice) {
@@ -310,6 +304,7 @@ speechRecognizer.onresult = (event) => {
     } else {
         // Speech not supported in browser
         btnVoiceInput.style.display = "none";
+        logger.info("SpeechRecognition API not supported in this browser.");
         console.info("SpeechRecognition API not supported in this browser.");
     }
 
@@ -317,8 +312,54 @@ speechRecognizer.onresult = (event) => {
         isRecordingVoice = false;
         btnVoiceInput.classList.remove("recording");
         btnVoiceInput.setAttribute("title", "Dictate with voice input");
-    } 
+    }
 
+    // ==========================================================================
+    // 📂 LOCAL HISTORY PERSISTENCE (localStorage)
+    // ==========================================================================
+    function saveHistoryToBrowser() {
+        localStorage.setItem("sunrise_chat_history", JSON.stringify(chatHistory));
+    }
+
+    function restoreChatHistory() {
+        chatMessagesStream.innerHTML = "";
+        const savedHistory = localStorage.getItem("sunrise_chat_history");
+
+        if (savedHistory) {
+            try {
+                chatHistory = JSON.parse(savedHistory);
+                if (chatHistory.length > 0) {
+                    welcomeBanner.classList.add("hide"); // Hide banner if history exists
+                    if (quickSuggestionsPanel) quickSuggestionsPanel.classList.add("hide");
+                    chatHistory.forEach(msg => {
+                        appendMessageBubble(msg.sender, msg.text, msg.time, msg.metadata, false);
+                    });
+                    scrollToBottom();
+                    return;
+                }
+            } catch (e) {
+                logger.error("Failed to parse local history:", e);
+                chatHistory = [];
+            }
+        }
+
+        // Append Welcome Message if empty history
+        appendWelcomeMessage();
+    }
+
+    function appendWelcomeMessage() {
+        welcomeBanner.classList.remove("hide");
+        if (quickSuggestionsPanel) quickSuggestionsPanel.classList.remove("hide");
+        appendMessageBubble("bot", "Hello! 👋 Welcome back. I'm the Sunrise University FAQ Assistant, your upgraded intelligent academic chatbot. Ask me about admissions, financials, housing, and campus life!", getFormattedTime(), null, false);
+    }
+
+    // Clear History handler
+    btnClearChat.addEventListener("click", () => {
+        chatHistory = [];
+        saveHistoryToBrowser();
+        restoreChatHistory();
+        showToast("Conversation history cleared.", "info");
+    });
 
     // ==========================================================================
     // 📂 INSTANT AUTOCOMPLETE (In-browser substring match)
@@ -331,7 +372,7 @@ speechRecognizer.onresult = (event) => {
                 autocompleteDictionary = data.suggestions || [];
             }
         })
-        .catch(err => console.error("Failed to fetch autocomplete corpus:", err));
+        .catch(err => logger.error("Failed to fetch autocomplete corpus:", err));
     }
 
     chatInputField.addEventListener("input", () => {
@@ -359,7 +400,7 @@ speechRecognizer.onresult = (event) => {
             const div = document.createElement("div");
             div.className = "autocomplete-item";
             div.innerHTML = `<i class="fa-solid fa-magnifying-glass"></i><span>${item}</span>`;
-            
+
             div.addEventListener("click", () => {
                 chatInputField.value = item;
                 hideAutocompleteBox();
@@ -418,17 +459,17 @@ speechRecognizer.onresult = (event) => {
     function appendMessageBubble(sender, text, time, metadata = null, saveToState = true) {
         welcomeBanner.classList.add("hide"); // Always hide banner upon bubble
         if (quickSuggestionsPanel) quickSuggestionsPanel.classList.add("hide");
-        
+
         const wrapper = document.createElement("div");
         wrapper.className = `message-wrapper ${sender === "user" ? "user-message" : "bot-message"}`;
-        
+
         const avatar = document.createElement("div");
         avatar.className = "message-avatar";
         avatar.innerHTML = sender === "user" ? '<i class="fa-solid fa-user"></i>' : '<i class="fa-solid fa-robot"></i>';
-        
+
         const container = document.createElement("div");
         container.className = "message-bubble-container";
-        
+
         // Show Spell Correction notification if corrected
         if (sender === "user" && metadata && metadata.corrected && metadata.corrected !== text) {
             const correctionSpan = document.createElement("span");
@@ -446,14 +487,14 @@ speechRecognizer.onresult = (event) => {
         if (sender === "bot" && metadata) {
             const metaCard = document.createElement("div");
             metaCard.className = "bot-metadata animate-fade-in";
-            
+
             // Format score as percentage progress
             const scoreVal = metadata.confidence || 0.0;
             const scorePercentage = (scoreVal * 100).toFixed(0);
-            
+
             let qualityLabel = "Weak";
             let colorClass = "weak";
-            
+
             if (scoreVal >= 0.80) {
                 qualityLabel = "Excellent";
                 colorClass = "excellent";
@@ -466,7 +507,7 @@ speechRecognizer.onresult = (event) => {
             }
 
             let metaHtml = "";
-            
+
             // 1. Matched Question details
             if (metadata.matched_question) {
                 metaHtml += `
@@ -523,15 +564,15 @@ speechRecognizer.onresult = (event) => {
             if (metadata.top_suggestions && metadata.top_suggestions.length > 0) {
                 const suggContainer = document.createElement("div");
                 suggContainer.className = "did-you-mean-container animate-fade-in";
-                
+
                 const label = document.createElement("span");
                 label.className = "did-you-mean-label";
                 label.innerHTML = metadata.confidence < 0.25 ? '<i class="fa-solid fa-circle-question"></i> Did you mean?' : '<i class="fa-solid fa-lightbulb"></i> Alternative suggestions:';
                 suggContainer.appendChild(label);
-                
+
                 const list = document.createElement("div");
                 list.className = "suggestion-buttons-list";
-                
+
                 metadata.top_suggestions.forEach(s => {
                     const btn = document.createElement("button");
                     btn.className = "suggest-reply-btn";
@@ -540,14 +581,14 @@ speechRecognizer.onresult = (event) => {
                         <span>${s.question}</span>
                         <span class="badge-score">${scorePct}%</span>
                     `;
-                    
+
                     btn.addEventListener("click", () => {
                         chatInputField.value = s.question;
                         handleChatSubmit();
                     });
                     list.appendChild(btn);
                 });
-                
+
                 suggContainer.appendChild(list);
                 container.appendChild(suggContainer);
             }
@@ -557,10 +598,10 @@ speechRecognizer.onresult = (event) => {
         timeNode.className = "message-time";
         timeNode.textContent = time;
         container.appendChild(timeNode);
-        
+
         wrapper.appendChild(avatar);
         wrapper.appendChild(container);
-        
+
         chatMessagesStream.appendChild(wrapper);
         scrollToBottom();
 
@@ -568,7 +609,7 @@ speechRecognizer.onresult = (event) => {
         if (sender === "bot" && metadata && metadata.log_id && !metadata.feedback_submitted) {
             const upBtn = wrapper.querySelector(`.up-btn`);
             const downBtn = wrapper.querySelector(`.down-btn`);
-            
+
             if (upBtn && downBtn) {
                 upBtn.addEventListener("click", () => sendFeedback(metadata.log_id, "helpful"));
                 downBtn.addEventListener("click", () => sendFeedback(metadata.log_id, "not_helpful"));
@@ -586,17 +627,17 @@ speechRecognizer.onresult = (event) => {
         const wrapper = document.createElement("div");
         wrapper.className = "message-wrapper bot-message temp-typing";
         wrapper.id = "bot-typing-node";
-        
+
         const avatar = document.createElement("div");
         avatar.className = "message-avatar";
         avatar.innerHTML = '<i class="fa-solid fa-robot"></i>';
-        
+
         const container = document.createElement("div");
         container.className = "message-bubble-container";
-        
+
         const bubble = document.createElement("div");
         bubble.className = "message-bubble";
-        
+
         const typing = document.createElement("div");
         typing.className = "typing-indicator";
         typing.innerHTML = `
@@ -604,12 +645,12 @@ speechRecognizer.onresult = (event) => {
             <span class="typing-dot"></span>
             <span class="typing-dot"></span>
         `;
-        
+
         bubble.appendChild(typing);
         container.appendChild(bubble);
         wrapper.appendChild(avatar);
         wrapper.appendChild(container);
-        
+
         chatMessagesStream.appendChild(wrapper);
         scrollToBottom();
     }
@@ -632,7 +673,7 @@ speechRecognizer.onresult = (event) => {
         // 2. Local submit user bubble
         appendMessageBubble("user", query, getFormattedTime(), null, true);
         chatInputField.value = "";
-        
+
         showTypingIndicator();
 
         // 3. Make AJAX POST Call
@@ -643,11 +684,11 @@ speechRecognizer.onresult = (event) => {
         })
         .then(async response => {
             const data = await response.json();
-            
+
             // Simulated delay for conversational realism
             setTimeout(() => {
                 hideTypingIndicator();
-                
+
                 if (response.ok || response.status === 200 || response.status === 400) {
                     // Update user's bubble in history if corrected
                     if (data.corrected_query && data.corrected_query !== query) {
@@ -655,12 +696,12 @@ speechRecognizer.onresult = (event) => {
                         if (lastUserMsgIdx >= 0 && chatHistory[lastUserMsgIdx].sender === "user") {
                             chatHistory[lastUserMsgIdx].metadata = { corrected: data.corrected_query };
                             saveHistoryToBrowser();
-                            
+
                             // Re-render chat to show corrected spell badge
                             restoreChatHistory();
                         }
                     }
-                    
+
                     // Render bot response
                     appendMessageBubble("bot", data.answer, getFormattedTime(), {
                         log_id: data.log_id,
@@ -707,7 +748,7 @@ speechRecognizer.onresult = (event) => {
                     }
                 });
                 saveHistoryToBrowser();
-                
+
                 // Redraw feedback text inline
                 const row = document.getElementById(`fb-row-${logId}`);
                 if (row) {
@@ -841,7 +882,7 @@ speechRecognizer.onresult = (event) => {
                 <span title="${variation}">${variation}</span>
                 <button type="button" class="remove-variation-btn" data-index="${index}"><i class="fa-solid fa-xmark"></i></button>
             `;
-            
+
             chip.querySelector(".remove-variation-btn").addEventListener("click", () => {
                 currentFormVariations.splice(index, 1);
                 renderVariationChips();
@@ -893,7 +934,7 @@ speechRecognizer.onresult = (event) => {
         faqFormQuestion.value = faq.question || "";
         faqFormAnswer.value = faq.answer || "";
         currentFormVariations = [...(faq.variations || [])];
-        
+
         renderVariationChips();
         openModal(modalFaqForm);
     }
@@ -1027,17 +1068,17 @@ speechRecognizer.onresult = (event) => {
         .then(async response => {
             if (!response.ok) throw new Error("Could not fetch analytics.");
             const data = await response.json();
-            
+
             // Populate metrics
             analyticTotalQueries.textContent = data.total_queries || 0;
             analyticAvgConfidence.textContent = data.total_queries ? `${(data.avg_confidence * 100).toFixed(1)}%` : "0.0%";
-            
+
             const helpfulCount = data.feedback_stats ? data.feedback_stats.helpful : 0;
             const nothelpfulCount = data.feedback_stats ? data.feedback_stats.not_helpful : 0;
             const ratedSum = helpfulCount + nothelpfulCount;
             const helpfulRatio = ratedSum > 0 ? (helpfulCount / ratedSum) * 100 : 0.0;
             analyticFeedbackRatio.textContent = ratedSum > 0 ? `${helpfulRatio.toFixed(1)}%` : "0.0%";
-            
+
             analyticFailedCount.textContent = data.failed_count || 0;
 
             // 1. Most Asked FAQs List
@@ -1068,12 +1109,12 @@ speechRecognizer.onresult = (event) => {
             analyticCategoryDistributionBars.innerHTML = "";
             if (data.category_distribution && Object.keys(data.category_distribution).length > 0) {
                 const total = data.total_queries;
-                
+
                 Object.entries(data.category_distribution).forEach(([category, count]) => {
                     const pct = ((count / total) * 100).toFixed(0);
                     const barGroup = document.createElement("div");
                     barGroup.className = "cat-stat-bar-group";
-                    
+
                     barGroup.innerHTML = `
                         <div class="cat-stat-meta">
                             <span class="cat-stat-name">${category}</span>
@@ -1093,7 +1134,7 @@ speechRecognizer.onresult = (event) => {
             analyticFbHelpful.textContent = helpfulCount;
             analyticFbNothelpful.textContent = nothelpfulCount;
             analyticFbUnrated.textContent = data.feedback_stats ? data.feedback_stats.no_feedback : 0;
-            
+
         })
         .catch(err => {
             showToast("Failed to load query analytics dashboard.", "error");
