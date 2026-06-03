@@ -256,69 +256,147 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ==========================================================================
-    // 🎤 BROWSER SPEECH RECOGNITION (Voice Input)
-    // ==========================================================================
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (SpeechRecognition) {
-        speechRecognizer = new SpeechRecognition();
-        speechRecognizer.continuous = false;
-        speechRecognizer.lang = 'en-US';
-        speechRecognizer.interimResults = false;
-        speechRecognizer.maxAlternatives = 1;
+   // ==========================================================================
+// 🎤 BROWSER SPEECH RECOGNITION (Voice Input)
+// ==========================================================================
+const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
 
-        speechRecognizer.onstart = () => {
-    console.log("🎤 Listening started");
+let speechRecognizer = null;
+let isRecordingVoice = false;
 
-    isRecordingVoice = true;
-    btnVoiceInput.classList.add("recording");
-    btnVoiceInput.setAttribute("title", "Listening... Click to stop.");
-    showToast("Microphone is active. Speak now!", "info");
-};
+if (SpeechRecognition) {
 
-speechRecognizer.onerror = (e) => {
-    console.error("Speech Error:", e.error);
-    showToast(`Voice input error: ${e.error}`, "error");
-    resetVoiceRecordingState();
-};
+    speechRecognizer = new SpeechRecognition();
 
-speechRecognizer.onend = () => {
-    console.log("🎤 Listening ended");
-    resetVoiceRecordingState();
-};
+    speechRecognizer.continuous = false;
+    speechRecognizer.interimResults = false;
+    speechRecognizer.lang = "en-US";
+    speechRecognizer.maxAlternatives = 1;
 
-speechRecognizer.onresult = (event) => {
-    console.log("🎤 Speech detected");
+    speechRecognizer.onstart = () => {
+        console.log("🎤 Listening started");
 
-    const resultText = event.results[0][0].transcript;
-    console.log("Transcript:", resultText);
+        isRecordingVoice = true;
 
-    if (resultText) {
-        chatInputField.value = resultText;
-        showToast(`Transcribed: "${resultText}"`, "success");
-        handleChatSubmit();
-    }
-};
+        btnVoiceInput.classList.add("recording");
+        btnVoiceInput.title = "Listening...";
 
-        btnVoiceInput.addEventListener("click", () => {
-            if (isRecordingVoice) {
-                speechRecognizer.stop();
-            } else {
-                speechRecognizer.start();
-            }
-        });
-    } else {
-        // Speech not supported in browser
-        btnVoiceInput.style.display = "none";
-        console.info("SpeechRecognition API not supported in this browser.");
-    }
+        showToast("🎤 Speak now...", "info");
+    };
 
-    function resetVoiceRecordingState() {
-        isRecordingVoice = false;
-        btnVoiceInput.classList.remove("recording");
-        btnVoiceInput.setAttribute("title", "Dictate with voice input");
-    }
+    speechRecognizer.onresult = (event) => {
+        console.log("🎤 Speech detected");
 
+        const transcript = event.results[0][0].transcript.trim();
+
+        console.log("Transcript:", transcript);
+
+        if (transcript.length > 0) {
+            chatInputField.value = transcript;
+
+            showToast(`Transcribed: "${transcript}"`, "success");
+
+            handleChatSubmit();
+        }
+    };
+
+    speechRecognizer.onerror = (event) => {
+
+        console.error("Speech Error:", event.error);
+
+        switch (event.error) {
+
+            case "no-speech":
+                showToast(
+                    "No speech detected. Please speak immediately after clicking the microphone.",
+                    "warning"
+                );
+                break;
+
+            case "not-allowed":
+                showToast(
+                    "Microphone permission denied.",
+                    "error"
+                );
+                break;
+
+            case "audio-capture":
+                showToast(
+                    "No microphone detected.",
+                    "error"
+                );
+                break;
+
+            case "network":
+                showToast(
+                    "Network error during speech recognition.",
+                    "error"
+                );
+                break;
+
+            default:
+                showToast(
+                    `Voice input error: ${event.error}`,
+                    "error"
+                );
+        }
+
+        resetVoiceRecordingState();
+    };
+
+    speechRecognizer.onend = () => {
+        console.log("🎤 Listening ended");
+        resetVoiceRecordingState();
+    };
+
+    btnVoiceInput.addEventListener("click", async () => {
+
+        try {
+            const stream =
+                await navigator.mediaDevices.getUserMedia({
+                    audio: true
+                });
+
+            stream.getTracks().forEach(track => track.stop());
+
+        } catch (err) {
+
+            console.error("Microphone Permission Error:", err);
+
+            showToast(
+                "Please allow microphone access in Chrome.",
+                "error"
+            );
+
+            return;
+        }
+
+        if (isRecordingVoice) {
+            speechRecognizer.stop();
+        } else {
+            speechRecognizer.start();
+        }
+    });
+
+} else {
+
+    console.warn(
+        "SpeechRecognition API not supported."
+    );
+
+    btnVoiceInput.style.display = "none";
+}
+
+function resetVoiceRecordingState() {
+
+    isRecordingVoice = false;
+
+    btnVoiceInput.classList.remove("recording");
+
+    btnVoiceInput.title =
+        "Dictate with voice input";
+}
     // ==========================================================================
     // 📂 LOCAL HISTORY PERSISTENCE (localStorage)
     // ==========================================================================
